@@ -121,7 +121,7 @@ log_pattern = {
 def get_auth_log_messages(log_file_path, pattern_priority, output_log_file_path):
     # auth_messages = []
     # prepare output log file
-    output_log_file = open(output_log_file_path, 'w')
+    output_log_file = open(output_log_file_path, 'a')
     output_log_writer = csv.writer(output_log_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     # write header: timestamp, message
@@ -196,7 +196,7 @@ if __name__ == '__main__':
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
-        merge_output_path = f'../output/{dataset}/merge.csv'
+        merge_output_path = f'../output/{dataset}.csv'
 
         total_messages = 0
         for log_type, info in log_pattern.items():
